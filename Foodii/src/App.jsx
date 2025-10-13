@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div className='text-8xl'>
-        HELLO
+        BYE
       </div>
     </>
   )
