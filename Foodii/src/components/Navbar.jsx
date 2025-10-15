@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, ShoppingCart, User, Heart } from 'lucide-react';
+import { Search, ShoppingCart, Heart } from 'lucide-react';
 
 const Navbar = () => {
   return (
@@ -44,3 +44,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
