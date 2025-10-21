@@ -1,13 +1,42 @@
-// Mock data for restaurants and dishes
-export const restaurants = [
-    { id: 1, name: 'Pizza Palace', image: '[https://placehold.co/320x160/F5EEE6/333?text=Pizza](https://placehold.co/320x160/F5EEE6/333?text=Pizza)', rating: 4.2, reviews: 500, cuisine: 'Italian • Pizza • Fast Food', deliveryTime: '25-30 min', deliveryFee: 'Free delivery' },
-    { id: 2, name: 'Burger House', image: '[https://placehold.co/320x160/F5EEE6/333?text=Burger](https://placehold.co/320x160/F5EEE6/333?text=Burger)', rating: 4.8, reviews: 1200, cuisine: 'American • Burgers • Fries', deliveryTime: '15-20 min', deliveryFee: '$2.99 delivery' },
-    { id: 3, name: 'Sushi Express', image: '[https://placehold.co/320x160/F5EEE6/333?text=Sushi](https://placehold.co/320x160/F5EEE6/333?text=Sushi)', rating: 4.6, reviews: 800, cuisine: 'Japanese • Sushi • Seafood', deliveryTime: '30-35 min', deliveryFee: 'Free delivery' },
-    { id: 4, name: 'Green Garden', image: '[https://placehold.co/320x160/F5EEE6/333?text=Salad](https://placehold.co/320x160/F5EEE6/333?text=Salad)', rating: 4.3, reviews: 350, cuisine: 'Healthy • Salads • Smoothies', deliveryTime: '20-25 min', deliveryFee: 'Free delivery' },
-];
-export const dishes = [
-    { id: 1, name: 'Margherita Pizza', image: '[https://placehold.co/400x300/F5EEE6/333?text=Margherita](https://placehold.co/400x300/F5EEE6/333?text=Margherita)', description: 'Fresh tomatoes, mozzarella, basil', price: '12.99' },
-    { id: 2, name: 'Classic Burger', image: '[https://placehold.co/400x300/F5EEE6/333?text=Burger](https://placehold.co/400x300/F5EEE6/333?text=Burger)', description: 'Beef patty, lettuce, tomato, cheese', price: '9.99' },
-    { id: 3, name: 'Salmon Roll', image: '[https://placehold.co/400x300/F5EEE6/333?text=Salmon+Roll](https://placehold.co/400x300/F5EEE6/333?text=Salmon+Roll)', description: 'Fresh salmon, avocado, cucumber', price: '15.99' },
-    { id: 4, name: 'Caesar Salad', image: '[https://placehold.co/400x300/F5EEE6/333?text=Caesar+Salad](https://placehold.co/400x300/F5EEE6/333?text=Caesar+Salad)', description: 'Romaine, chicken, parmesan, croutons', price: '8.99' },
+export const featuredRestaurants = [
+  {
+    id: 1,
+    name: 'Pizza Palace',
+    rating: 4.2,
+    reviews: '500',
+    cuisine: 'Italian • Pizza • Fast Food',
+    deliveryTime: '25-30 min',
+    deliveryFee: 'Free delivery',
+    imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 2,
+    name: 'Burger House',
+    rating: 4.8,
+    reviews: '1200',
+    cuisine: 'American • Burgers • Fries',
+    deliveryTime: '15-20 min',
+    deliveryFee: '$2.99 delivery',
+    imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 3,
+    name: 'Sushi Express',
+    rating: 4.6,
+    reviews: '800',
+    cuisine: 'Japanese • Sushi • Seafood',
+    deliveryTime: '30-35 min',
+    deliveryFee: 'Free delivery',
+    imageUrl: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=1948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 4,
+    name: 'Green Garden',
+    rating: 4.3,
+    reviews: '350',
+    cuisine: 'Healthy • Salads • Smoothies',
+    deliveryTime: '20-25 min',
+    deliveryFee: 'Free delivery',
+    imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
 ];
