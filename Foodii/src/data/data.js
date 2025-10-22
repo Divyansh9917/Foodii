@@ -5,8 +5,8 @@ export const featuredRestaurants = [
     rating: 4.2,
     reviews: '500',
     cuisine: 'Italian • Pizza • Fast Food',
-    deliveryTime: '25-30 min',
-    deliveryFee: 'Free delivery',
+    priceFull: 450,
+    priceHalf: 250,
     imageUrl: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
@@ -15,8 +15,8 @@ export const featuredRestaurants = [
     rating: 4.8,
     reviews: '1200',
     cuisine: 'American • Burgers • Fries',
-    deliveryTime: '15-20 min',
-    deliveryFee: '$2.99 delivery',
+    priceFull: 250,
+    priceHalf: 150,
     imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
@@ -25,8 +25,8 @@ export const featuredRestaurants = [
     rating: 4.6,
     reviews: '800',
     cuisine: 'Japanese • Sushi • Seafood',
-    deliveryTime: '30-35 min',
-    deliveryFee: 'Free delivery',
+    priceFull: 300,
+    priceHalf: 180,
     imageUrl: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=1948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
@@ -35,8 +35,8 @@ export const featuredRestaurants = [
     rating: 4.3,
     reviews: '350',
     cuisine: 'Healthy • Salads • Smoothies',
-    deliveryTime: '20-25 min',
-    deliveryFee: 'Free delivery',
+    priceFull: 220,
+    priceHalf: 130,
     imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
 ];
