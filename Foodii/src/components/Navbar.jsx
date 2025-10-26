@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Search, ShoppingCart, Heart } from 'lucide-react';
 
 const Navbar = () => {
@@ -7,16 +8,17 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-8">
-            <a href="#" className="flex-shrink-0">
-               <h1 className="text-2xl font-bold text-orange-500">Foodii</h1>
-            </a>
+            <Link to="/" className="flex-shrink-0">
+              <h1 className="text-2xl font-bold text-orange-500">Foodii</h1>
+            </Link>
             <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-500 hover:text-gray-900 font-medium">Home</a>
-              <a href="#" className="text-gray-500 hover:text-gray-900 font-medium">Restaurants</a>
-              <a href="#" className="text-gray-500 hover:text-gray-900 font-medium">Offers</a>
-              <a href="#" className="text-gray-500 hover:text-gray-900 font-medium">Orders</a>
+              <Link to="/" className="text-gray-500 hover:text-gray-900 font-medium">Home</Link>
+              <Link to="/restaurants" className="text-gray-500 hover:text-gray-900 font-medium">Restaurants</Link>
+              <Link to="/offers" className="text-gray-500 hover:text-gray-900 font-medium">Offers</Link>
+              <Link to="/orders" className="text-gray-500 hover:text-gray-900 font-medium">Orders</Link>
             </nav>
           </div>
+
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex items-center bg-gray-100 rounded-full px-4 py-2">
               <Search className="text-gray-500 h-5 w-5" />
@@ -26,16 +28,22 @@ const Navbar = () => {
                 className="bg-transparent ml-2 focus:outline-none text-sm text-gray-700 w-64"
               />
             </div>
-            <a href="#" className="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-900">
-                <Heart className="h-6 w-6" />
-            </a>
-            <a href="#" className="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-900 relative">
-                <ShoppingCart className="h-6 w-6" />
-                <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-orange-500 ring-2 ring-white"></span>
-            </a>
-            <button className="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600 transition-colors">
+
+            <Link to="/wishlist" className="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-900">
+              <Heart className="h-6 w-6" />
+            </Link>
+
+            <Link to="/cart" className="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-900 relative">
+              <ShoppingCart className="h-6 w-6" />
+              <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-orange-500 ring-2 ring-white"></span>
+            </Link>
+
+            <Link 
+              to="/login"
+              className="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600 transition-colors"
+            >
               Login
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -44,4 +52,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -1,27 +1,40 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Categories from './components/Categories';
 import FeaturedRestaurants from './components/FeaturedRestaurants';
-// We will add more components here as we build them
-// import PopularNearYou from './components/PopularNearYou';
-// import SpecialOffers from './components/SpecialOffers';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import NotFound from './components/NotFound';
 // import Footer from './components/Footer';
+
+function Home() {
+  return (
+    <main>
+      <Hero />
+      <Categories />
+      <FeaturedRestaurants />
+      {/* Add more homepage components here */}
+      {/* <Footer /> */}
+    </main>
+  );
+}
 
 function App() {
   return (
-    <div className="bg-white font-sans">
-      <Navbar />
-      <main>
-        <Hero />
-        <Categories />
-        <FeaturedRestaurants />
-        {/* The other components will go here */}
-      </main>
-      {/* <Footer /> */}
-    </div>
+    <BrowserRouter>
+      <div className="bg-white font-sans">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
