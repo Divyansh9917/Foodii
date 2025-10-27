@@ -1,13 +1,18 @@
-const mongoose = require('mongoose');
-const mongoURI = 'mongodb+srv://Divyansh:Abcd1234$@cluster0.kjpku1n.mongodb.net/FOODII?retryWrites=true&w=majority&appName=Cluster0';
+const mongoose = require("mongoose");
+require("dotenv").config(); // Load environment variables from .env file
 
-const mongoDB = () => {
-    mongoose.connect(mongoURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => console.log("Connected!!!"))
-    .catch(err => console.error("MongoDB connection error:", err));
-}
+const mongoURI = process.env.MONGODB_URI; // Use .env variable
+
+const mongoDB = async () => {
+  try {
+    await mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Connected to MongoDB!");
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+  }
+};
 
 module.exports = mongoDB;

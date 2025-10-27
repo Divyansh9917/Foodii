@@ -32,7 +32,9 @@ const Login = () => {
         alert(json.message || "Invalid credentials!");
       } else {
         alert("Login successful!");
-        navigate("/"); // Redirect to home page
+        localStorage.setItem("authToken",json.authToken);
+        console.log(localStorage.getItem("authToken"));
+        navigate("/");
       }
     } catch (error) {
       console.error("Login error:", error);

@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-// POST /api/login
+const jwtSecret="EndToEndEncrypted$"
+
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -17,12 +20,18 @@ router.post("/login", async (req, res) => {
       return res.json({ success: false, message: "Invalid email or password" });
     }
 
-    // Compare plain text password
-    if (user.password !== password) {
+    const pwdCompare=await bcrypt.compare(password,user.password)
+    if (!pwdCompare) {
       return res.json({ success: false, message: "Invalid email or password" });
     }
+    const data={
+      user:{
+        id:user.id
+      }
+    }
+    const authToken=jwt.sign(data,jwtSecret)
 
-    res.json({ success: true, message: "Login successful" });
+    res.json({ success: true,authToken:authToken});
   } catch (error) {
     console.error(error);
     res.json({ success: false, message: "Server error" });

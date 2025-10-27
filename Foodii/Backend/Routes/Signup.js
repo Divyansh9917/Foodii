@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const { check, validationResult } = require('express-validator');
+const bcrypt=require('bcryptjs')
 
-// POST /api/signup
+
 router.post(
   "/signup",
   [
@@ -21,6 +22,9 @@ router.post(
       return res.json({ success: false, errors: errors.array() });
     }
 
+    const salt=await bcrypt.genSalt(10);
+    let secPassword=await bcrypt.hash(req.body.password,salt)
+
     try {
       const { name, email, password } = req.body;
 
@@ -30,8 +34,11 @@ router.post(
         return res.json({ success: false, message: "Email already registered" });
       }
 
-      // Save user without hashing
-      await User.create({ name, email, password });
+      await User.create({ 
+        name,
+        email,
+        password:secPassword 
+      });
 
       res.json({ success: true });
     } catch (error) {

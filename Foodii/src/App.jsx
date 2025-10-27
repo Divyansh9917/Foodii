@@ -1,39 +1,107 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Categories from './components/Categories';
-import FeaturedRestaurants from './components/FeaturedRestaurants';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import NotFound from './components/NotFound';
-// import Footer from './components/Footer';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import {
+  SignIn,
+  SignUp,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+} from "@clerk/clerk-react";
 
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Categories from "./components/Categories";
+import FeaturedRestaurants from "./components/FeaturedRestaurants";
+import NotFound from "./components/NotFound";
+
+// Home page sections
 function Home() {
   return (
     <main>
       <Hero />
       <Categories />
       <FeaturedRestaurants />
-      {/* Add more homepage components here */}
-      {/* <Footer /> */}
     </main>
+  );
+}
+
+// Reusable Protected Route wrapper
+function ProtectedRoute({ children }) {
+  return (
+    <>
+      <SignedIn>{children}</SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </>
   );
 }
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="bg-white font-sans">
-        <Navbar />
+    <div className="bg-white font-sans min-h-screen flex flex-col">
+      <Navbar />
+
+      <div className="flex-grow">
         <Routes>
+         
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+
+          
+          <Route
+            path="/sign-in"
+            element={
+              <div className="flex items-center justify-center min-h-screen bg-gray-50">
+                <SignIn
+                  routing="path"
+                  path="/sign-in"
+                  appearance={{
+                    elements: {
+                      formButtonPrimary:
+                        "bg-orange-500 hover:bg-orange-600 text-white font-semibold transition-colors",
+                    },
+                  }}
+                />
+              </div>
+            }
+          />
+
+          
+          <Route
+            path="/sign-up"
+            element={
+              <div className="flex items-center justify-center min-h-screen bg-gray-50">
+                <SignUp
+                  routing="path"
+                  path="/sign-up"
+                  appearance={{
+                    elements: {
+                      formButtonPrimary:
+                        "bg-orange-500 hover:bg-orange-600 text-white font-semibold transition-colors",
+                    },
+                  }}
+                />
+              </div>
+            }
+          />
+
+          
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoute>
+                <div className="p-10 text-center text-2xl">
+                  Your Orders Page 🛒 (Protected)
+                </div>
+              </ProtectedRoute>
+            }
+          />
+
+          /* 404 Fallback */
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 
