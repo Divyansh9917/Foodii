@@ -13,19 +13,21 @@ import Hero from "./components/Hero";
 import Categories from "./components/Categories";
 import FeaturedRestaurants from "./components/FeaturedRestaurants";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
-// Home page sections
+// Home Page
 function Home() {
   return (
     <main>
       <Hero />
       <Categories />
       <FeaturedRestaurants />
+      <Footer />
     </main>
   );
 }
 
-// Reusable Protected Route wrapper
+// Protected route wrapper
 function ProtectedRoute({ children }) {
   return (
     <>
@@ -44,17 +46,18 @@ function App() {
 
       <div className="flex-grow">
         <Routes>
-         
+          {/* Home */}
           <Route path="/" element={<Home />} />
 
-          
+          {/* Clerk Auth Routes */}
           <Route
             path="/sign-in"
             element={
               <div className="flex items-center justify-center min-h-screen bg-gray-50">
                 <SignIn
-                  routing="path"
                   path="/sign-in"
+                  routing="path"
+                  signUpUrl="/sign-up"
                   appearance={{
                     elements: {
                       formButtonPrimary:
@@ -66,14 +69,14 @@ function App() {
             }
           />
 
-          
           <Route
             path="/sign-up"
             element={
               <div className="flex items-center justify-center min-h-screen bg-gray-50">
                 <SignUp
-                  routing="path"
                   path="/sign-up"
+                  routing="path"
+                  signInUrl="/sign-in"
                   appearance={{
                     elements: {
                       formButtonPrimary:
@@ -85,19 +88,19 @@ function App() {
             }
           />
 
-          
+          {/* Protected Orders Page */}
           <Route
             path="/orders"
             element={
               <ProtectedRoute>
                 <div className="p-10 text-center text-2xl">
-                  Your Orders Page 🛒 (Protected)
+                  🛒 Your Orders (Protected)
                 </div>
               </ProtectedRoute>
             }
           />
 
-          /* 404 Fallback */
+          {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
