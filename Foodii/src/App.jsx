@@ -12,8 +12,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Categories from "./components/Categories";
 import FeaturedRestaurants from "./components/FeaturedRestaurants";
-import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 
 // Home Page
 function Home() {
@@ -27,7 +27,7 @@ function Home() {
   );
 }
 
-// Protected route wrapper
+//  Protected Route Wrapper
 function ProtectedRoute({ children }) {
   return (
     <>
@@ -39,6 +39,7 @@ function ProtectedRoute({ children }) {
   );
 }
 
+// ✅ App Component
 function App() {
   return (
     <div className="bg-white font-sans min-h-screen flex flex-col">
@@ -49,15 +50,14 @@ function App() {
           {/* Home */}
           <Route path="/" element={<Home />} />
 
-          {/* Clerk Auth Routes */}
+          {/*  Clerk Authentication (Fixed Nested Routes) */}
           <Route
-            path="/sign-in"
+            path="/sign-in/*"
             element={
               <div className="flex items-center justify-center min-h-screen bg-gray-50">
                 <SignIn
-                  path="/sign-in"
                   routing="path"
-                  signUpUrl="/sign-up"
+                  path="/sign-in"
                   appearance={{
                     elements: {
                       formButtonPrimary:
@@ -70,13 +70,12 @@ function App() {
           />
 
           <Route
-            path="/sign-up"
+            path="/sign-up/*"
             element={
               <div className="flex items-center justify-center min-h-screen bg-gray-50">
                 <SignUp
-                  path="/sign-up"
                   routing="path"
-                  signInUrl="/sign-in"
+                  path="/sign-up"
                   appearance={{
                     elements: {
                       formButtonPrimary:
@@ -88,19 +87,19 @@ function App() {
             }
           />
 
-          {/* Protected Orders Page */}
+          {/* Example Protected Route */}
           <Route
             path="/orders"
             element={
               <ProtectedRoute>
                 <div className="p-10 text-center text-2xl">
-                  🛒 Your Orders (Protected)
+                  Your Orders Page 🛒 (Protected)
                 </div>
               </ProtectedRoute>
             }
           />
 
-          {/* 404 */}
+          {/* 404 Fallback */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
