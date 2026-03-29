@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import heroLogo from '../logo/herologo.svg'; 
+import heroLogo from '../Logo/herologo.svg'; 
 
 
 const Hero = () => {
